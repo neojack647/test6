@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-12">
+      <h3>
+        <mat-icon class="md-16 align-right close" (click)="close()">close</mat-icon>
+      </h3>
+      <div class="spacer"></div>
+      <form #form="ngForm" autocomplete="off">
+        <div class="col">
+          <label for="description">Search or Add New Tag</label>
+          <input type="text" appSpecialCharFilter focus
+                autocomplete="off" spellcheck="false"
+                 aria-label="tag description"
+                 id="description"
+                 name="description"
+                 class="form-control"
+                 [(ngModel)]="value"
+                 (onDebounce)="search($event)"
+                 (keydown.enter)="save()"
+                 [formControl]="tagControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete"
+          [displayWith]="displayWith" 
+          (optionSelected)="selectedTag($event.option.value)">
+          <mat-option *ngFor="let t of tags" [value]="t">
+            {{t.description}}
+          </mat-option>
+        </mat-autocomplete>
+        <div *ngIf="searchResultEmpty" class="small font-italic text-right">(No existing tag found)</div>
+        </div>
+        <div class="align-right col">
+          <label style="opacity: 0" aria-hidden="true">&nbsp;</label>
+            <button type="button" mat-raised-button color="accent" [disabled]="form.invalid" (click)="save()">
+                <mat-icon class="md-16">save</mat-icon>
+            </button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-12">
+      <h4 id="page-title"> Thing Paging Example
+        <button color="accent" class="pull-right" matTooltip="Add" (click)="add()" mat-icon-button id="add-button">
+          <mat-icon class="md-24">add</mat-icon>
+        </button>
+      </h4>
+  
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td colspan="100" class="no-padding no-margin">
+              <div class="flex-div">
+                <td-search-box #searchBox backIcon="arrow_back" class="flex-span open" autocomplete="off" [alwaysVisible]="true" placeholder="Search..." (searchDebounce)="onSearch($event)">
+                </td-search-box>
+  
+                <mat-paginator [length]="totalCount"
+                [pageSize]="pageSize"
+                id="paginator"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="onPaginateChange($event)">
+                </mat-paginator>
+  
+            </div>
+          </td>
+        </tr>
+        <tr class="thead-dark">
+          <th width="20%" scope="col"><a class="pseudo-link" [ngClass]="{'selected': orderBySelected['Name'],'asc':orderBySelected['asc'], 'desc': orderBySelected['desc']}" (click)="orderByFilter('Name')">Name</a></th>
+          <th width="20%" scope="col"><a class="pseudo-link" [ngClass]="{'selected': orderBySelected['Description'],'asc':orderBySelected['asc'], 'desc': orderBySelected['desc']}" (click)="orderByFilter('Description')">Description</a></th>
+          <th width="20%" scope="col"><a class="pseudo-link" [ngClass]="{'selected': orderBySelected['Type'],'asc':orderBySelected['asc'], 'desc': orderBySelected['desc']}" (click)="orderByFilter('Type')">Type</a></th>
+          <th width="20%" scope="col"><a class="pseudo-link" [ngClass]="{'selected': orderBySelected['Tags'],'asc':orderBySelected['asc'], 'desc': orderBySelected['desc']}" (click)="orderByFilter('Tags')">Tags</a></th>
+          <th scope="col" class="actions-cell">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="data-container">
+        <tr *ngFor="let x of filteredCollection" class="filtered-collection-classes">
+          <td (click)="edit(x)" class="clickable-cell">{{x.name}}</td>
+          <td (click)="edit(x)" class="clickable-cell">{{x.description}}</td>
+          <td (click)="edit(x)" class="clickable-cell">{{x?.type?.description}}</td>
+          <td (click)="edit(x)" class="clickable-cell">
+            <span *ngFor="let t of x?.tags">
+              {{t.description}}<span *ngIf="x.tags?.indexOf(t) != (x.tags?.length - 1)">,</span>
+            </span>
+          </td>
+          <td class="actions-cell">
+            <mat-icon (click)="edit(x)" color="primary" matTooltip="Edit" class="md-18 edit-button">edit</mat-icon>
+            <mat-icon (click)="delete(x.id)" matTooltip="Delete" color="warn" class="md-18 delete-button">delete</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

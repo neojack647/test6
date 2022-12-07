@@ -1,0 +1,18 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
+  "compilerOptions": {
+    "outDir": "./ClientApp/out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "ClientApp/main.ts",
+    "ClientApp/polyfills.ts"
+  ],
+  "include": [
+    "ClientApp/**/*.d.ts"
+  ]
+}

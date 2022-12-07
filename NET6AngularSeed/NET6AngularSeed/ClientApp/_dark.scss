@@ -1,0 +1,295 @@
+$dtg: #aed581;
+$ltg: #8bc34a;
+$p1: #01579b;
+$dp3: darken($p1, 3%);
+$dp5: darken($p1, 5%);
+$dp8: darken($p1, 8%);
+$dbg: #424242;
+$dtp1: lighten($p1, 13%);
+
+// // DARK THEME // //
+.dark-theme {
+    $dark-primary: mat-palette($mat-blue, 900);
+    $dark-accent: mat-palette($mat-light-green, 300);
+    $dark-warn: mat-palette($mat-red, 500);
+    $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+    @include angular-material-theme($dark-theme);
+    & {
+      background-color: darken($dbg, 5%);
+      color: white;
+    }
+
+    .app-container {
+        background: darken($dbg, 5%);
+    }
+
+    .side-menu {
+      background-color: darken($dbg, 8%);
+      border-color: rgba($dtg, .25);
+      .nav-pills>li.nav-item {
+        color: $dtg;
+        &.active {
+          background-color: $dtg;
+          color: white;
+        }
+        &:hover:not(.active) {
+          background-color: rgba($dtg, .35);
+          color: white;
+        }
+      }
+      .nav {
+        border-color: rgba($dtg, .25);
+        li.sub-nav {
+          ul {
+            li.active {
+              background-color: rgba($dtg, .5);
+            }
+          }
+        }
+      }
+    }
+    .table tr.thead-dark>th {
+      background-color: $dbg;
+      color: $dtg;
+
+      a.pseudo-link {color: $dtg; }
+
+      border-color: rgba($dtg, .125);
+      &.actions-cell {
+        color: white;
+      }
+    }
+    .table th,
+    .table td {
+      border-top: 1px solid rgba(white, .125);
+    }
+    td-search-box.open {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+    }
+    .mat-paginator {
+      border: 1px solid rgba(255, 255, 255, 0.125);
+    }
+    .table-hover>tbody>tr:hover {
+      background-color: lighten($dbg, 3%);
+      color: white;
+    }
+    .log-table {
+      color: white;
+      tr {
+        &.normal-startup {
+          background-color: rgba(123, 220, 123, .70);
+        }
+        &.warning {
+          background-color: rgba(252, 255, 0, .70);
+        }
+        &.error-application-generated {
+          background-color: rgba(252, 127, 0, .70);
+        }
+        &.error-exception {
+          background-color: rgba(255, 0, 0, .70);
+        }
+        &.normal-shutdown {
+          background-color: rgba(213, 167, 127, .70);
+        }
+        &.information {
+          background-color: rgba(172, 172, 172, .25);
+        }
+        &.e-mail {
+          background-color: rgba(134, 164, 248, .70);
+        }
+      }
+    }
+    .form-control {
+      background-color: $dbg;
+      color: white;
+      border-color: rgba($dtg, .25);
+  
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($dtg, 0.25);
+      }
+  
+      &.ng-invalid, &.invalid {
+        border-color: rgba(255, 0, 0, 0.5);
+        background-color: rgba(255, 0, 0, 0.25);
+      }
+  }
+  .mat-icon.mat-primary,
+  .mat-icon-button.mat-primary,
+  .mat-stroked-button.mat-primary {
+      color: $dtp1;
+  }
+  
+  .mat-icon.close {
+    color: white;
+  }
+  
+  .mat-option-text {
+    color: $dtg;
+  }
+  
+  .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow,
+  .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger {
+    color: $dtg;
+  }
+  
+  mat-form-field.mat-focused {
+    .mat-form-field-label {
+      color: $dtg!important;
+    }
+  
+    .mat-paginator-page-size-select {
+      color: $dtg!important; // TODO: fix
+    }
+  
+    .mat-select-arrow {
+      color: $dtg!important;
+    }
+  
+    .mat-form-field-underline {
+      background-color: $dtg!important;
+    }
+    .mat-form-field-ripple {
+      background-color: $dtg!important;
+    }
+  }
+  
+  .section-header {
+    border-color: white;
+  }
+  
+  .mat-calendar-body-selected {
+    background-color: $dtg;
+    color: $dbg;
+  }
+  
+  .mat-calendar-body-today.mat-calendar-body-selected {
+    -webkit-box-shadow: inset 0 0 0 1px $dbg;
+    box-shadow: inset 0 0 0 1px $dbg;
+  }
+  
+  .mat-datepicker-toggle-active {
+    color: $dtg;
+  }
+  
+  .breadcrumb {
+    background-color: transparent;
+    border: 1px solid rgba(white, .125);
+  }
+  
+  pre {
+    color: white;
+  }
+  
+  .componentTabs {
+    ul {
+      border-bottom-color:  rgba(255, 255, 255, 0.125);
+    }
+    .nav-tabs a.nav-link {
+      color: $dtg;
+      border-color:  rgba(255, 255, 255, 0.125);
+    }
+  
+    .nav-tabs a.nav-link.active {
+      color: $dbg;
+      background-color: $dtg;
+      border-color:  rgba(255, 255, 255, 0.5);
+    }
+  
+    .nav-tabs a.nav-link.disabled {
+      color: gray!important;
+    }
+  }
+  
+  .card {
+    background-color: transparent;
+  }
+  
+  .employee-autosuggest-list {
+    background-color: $dbg;
+    border-color: rgba($dtg, .125);
+    color: white;
+  
+    .employee-autosuggest-list-item {
+      color: rgba($dtg, .125);
+      border-color: rgba($dtg, .125);
+  
+      .employee-autosuggest-link {
+        color: $dtg;
+    }
+      
+      &:hover, focus {
+        background-color: $dtg;
+        a {
+          color: $dbg!important;
+        }
+      }
+    }
+  
+    app-list-item.active {
+      li {
+        background-color: $dtg;
+        a {
+          color: $dbg!important;
+        }
+      }
+    }
+  }
+  
+  .table th, .table td { color: white; }
+  
+  .td-search-icon {
+      color: white;
+  }
+
+
+  .autosuggest-wrapper {
+    position: relative;
+  
+    // .employee-autosuggest-input {}
+  
+    .autosuggest-list {
+      position: absolute;
+      top: calc(100% + 3px);
+      left: 1rem;
+      list-style: none;
+      margin:  0;
+      padding: 0;
+      width: 100%;
+      max-width: 250px;
+      border: 1px solid rgba($dtg, .125);
+      font-size: 9pt;
+      background-color: $dbg;
+      z-index: 500;
+        
+    
+      li {
+        display: block;
+        padding: 5px 15px;
+        border-bottom: 1px solid rgba($dtg, .125);
+      }
+  
+      app-list-item.active {
+        li {
+          background-color: $dtg;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+}
+
+.mat-tab-group .mat-tab-label {
+  
+  &.mat-tab-label-active {
+    color: $dtg;
+  }
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: $dtg;
+}
+
+
+  // end dark theme
+  }
